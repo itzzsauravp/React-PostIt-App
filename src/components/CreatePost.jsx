@@ -28,12 +28,12 @@ const CreatePost = ({ toggleSelectedTab }) => {
     }, 1000);
     setTimeout(() => {
       toggleSelectedTab("Home");
-    }, 1800);
+    }, 2000);
   };
 
   return (
     <form className="createPost create-post-container" onSubmit={handleSubmit}>
-      <Toaster position="top-right" reverseOrder={true} />
+      <Toaster position="top-center" reverseOrder={true} />
       <div className="mb-3">
         <input
           type="text"

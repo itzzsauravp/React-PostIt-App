@@ -1,0 +1,111 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.appContainer {
+  display: flex;
+}
+
+.content {
+  width: 100dvw;
+}
+
+.sidebar {
+  min-height: 100dvh;
+}
+
+.header {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.header p {
+  font-size: 0.5em;
+  font-weight: normal;
+  position: absolute;
+  top: 40%;
+  left: 45%;
+}
+
+.header p span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.post-container {
+  margin: 30px;
+}
+
+.create-post-container {
+  margin: 400px auto;
+  width: 50%;
+}
+
+.postCard {
+  margin: 50px 0px;
+}
+
+.hastag {
+  margin: 0px 3px;
+}
+
+.reactions {
+  margin: 15px 0px;
+}
+
+.footer ul li {
+  margin: 10px;
+}
+
+.postLoading {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.postEditPopUp {
+  position: fixed;
+  top: 40%;
+  left: 45%;
+  height: auto;
+  width: 500px;
+  background-color: whitesmoke;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  z-index: 999;
+}
+
+.postEditPopUp p {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.editForm {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fields input {
+  margin: 10px;
+}
+
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}

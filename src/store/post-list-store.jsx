@@ -7,6 +7,7 @@ export const PostList = createContext({
   addPost: () => {},
   deletePost: () => {},
   editPost: () => {},
+  getPostFromServer: () => {},
 });
 
 // Reducer function
@@ -29,6 +30,10 @@ const postListReducer = (currPostList, action) => {
           }
         : post
     );
+  } else if (action.type === "ADD_POSTS_FROM_SERVER") {
+    newPostList = action.payload.data.map((post) => {
+      return { ...post, reaction: Math.floor(Math.random() * 50) };
+    });
   }
   return newPostList;
 };
@@ -74,6 +79,18 @@ const PostListProvider = ({ children }) => {
     });
   };
 
+  const getPostFromServer = async () => {
+    const posts = await fetch("https://dummyjson.com/posts");
+    const res = await posts.json();
+    const data = res.posts;
+    dispatchPostList({
+      type: "ADD_POSTS_FROM_SERVER",
+      payload: {
+        data,
+      },
+    });
+  };
+
   return (
     <PostList.Provider
       value={{
@@ -81,6 +98,7 @@ const PostListProvider = ({ children }) => {
         addPost,
         deletePost,
         editPost,
+        getPostFromServer,
       }}
     >
       {children}

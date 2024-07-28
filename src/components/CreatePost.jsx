@@ -2,12 +2,15 @@ import { useContext, useRef, useState } from "react";
 import { PostList } from "../store/post-list-store";
 import toast, { Toaster } from "react-hot-toast";
 import { BarLoader } from "react-spinners";
-const CreatePost = ({ toggleSelectedTab }) => {
+import { useNavigate } from "react-router-dom";
+
+const CreatePost = () => {
   const { addPost } = useContext(PostList);
   const postTitle = useRef("");
   const postBody = useRef("");
   const postTags = useRef("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     setLoading(true);
@@ -27,7 +30,7 @@ const CreatePost = ({ toggleSelectedTab }) => {
       postTags.current.value = "";
     }, 1000);
     setTimeout(() => {
-      toggleSelectedTab("Home");
+      navigate("/");
     }, 2000);
   };
 

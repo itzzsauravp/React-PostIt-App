@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
-import { MdDelete } from "react-icons/md";
 import { PostList } from "../store/post-list-store";
+import { MdDelete } from "react-icons/md";
 import EditPost from "./EditPost";
+
 const Post = ({ post }) => {
   const { deletePost } = useContext(PostList);
   const [canEdit, setCanEdit] = useState(false);

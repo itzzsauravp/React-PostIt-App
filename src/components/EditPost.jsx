@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
 import { PostList } from "../store/post-list-store";
+import { useContext, useState } from "react";
 
 const EditPost = ({ post, setCanEdit }) => {
   const { editPost } = useContext(PostList);
@@ -20,28 +20,28 @@ const EditPost = ({ post, setCanEdit }) => {
         }}
       >
         <div className="fields">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Whats on you mind?"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <textarea
-              type="text"
-              rows={5}
-              className="form-control"
-              placeholder="Tell us more..."
-              value={body}
-              onChange={(e) => setBody(e.target.value)}
-            />
-            <input
-              type="text"
-              className="form-control"
-              placeholder="#NoteBook #AddTags #Here"
-              value={tags}
-              onChange={(e) => setTags(e.target.value)}
-            />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Whats on you mind?"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <textarea
+            type="text"
+            rows={5}
+            className="form-control"
+            placeholder="Tell us more..."
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+          />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="#NoteBook #AddTags #Here"
+            value={tags}
+            onChange={(e) => setTags(e.target.value)}
+          />
         </div>
         <div className="buttons">
           <button type="submit" className="btn btn-success">

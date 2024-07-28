@@ -1,37 +1,20 @@
-import Header from "./components/Header";
-import Sidebar from "./components/SIdebar";
+import { Routes, Route } from "react-router-dom";
+import Layouts from "./layouts/Layouts";
 import PostList from "./components/PostList";
 import CreatePost from "./components/CreatePost";
-import PostListProvider from "./store/post-list-store";
-import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Error404 from "./components/Error404";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
-  const [selectedTab, setSelectedTab] = useState("Home");
-
-  const toggleSelectedTab = (currTab) => {
-    setSelectedTab(currTab);
-  };
   return (
-    <PostListProvider>
-      <div className="appContainer">
-        <Sidebar
-          toggleSelectedTab={toggleSelectedTab}
-          selectedTab={selectedTab}
-        />
-        <div className="content">
-          {selectedTab === "Home" ? (
-            <>
-              <Header />
-              <PostList toggleSelectedTab={toggleSelectedTab} />
-            </>
-          ) : (
-            <CreatePost toggleSelectedTab={toggleSelectedTab} />
-          )}
-        </div>
-      </div>
-    </PostListProvider>
+    <Routes>
+      <Route path="/" element={<Layouts />}>
+        <Route path="/" element={<PostList />}></Route>
+        <Route path="/create-post" element={<CreatePost />}></Route>
+      </Route>
+      <Route path="*" element={<Error404 />}></Route>
+    </Routes>
   );
 };
 
